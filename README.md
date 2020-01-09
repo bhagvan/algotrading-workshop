@@ -20,7 +20,7 @@ At minimum, at the end of this workshop, you should have backtested several trad
 ## Solution Architecture
 
 
-![architecture](assets/arc-backtest.png)
+![architecture](assets/arch-backtest.png)
 
 ## Supported regions:
 * us-east-1 (N. Virginia)
