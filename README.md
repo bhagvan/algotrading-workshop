@@ -36,6 +36,4 @@ At minimum, at the end of this workshop, you should have backtested several trad
 1. [Module 0: Set up the environment](0_Setup)
 1. [Module 1: Prepare the stock market data](1_Data)
 1. [Module 2: Build and backtest trading strategies using Amazon SageMaker](2_Strategies)
-1. [Module 3: Train models for trading strategies using Amazon SageMaker](3_Models)
-1. [Module 4: Run your trading strategies in a simulation environment](4_Simulation)
-1. [Module 5: Cleanup](5_Cleanup)
+1. [Module 3: Cleanup](5_Cleanup)

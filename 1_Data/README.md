@@ -1,5 +1,7 @@
 # Prepare the stock market data
 
+**Time to complete:** 2 minutes.
+
 ## What are we building?
 
 In this module, we prepare the stocket market data and store per ticker a separate CSV file that contains the daily open, low, high, and close prices and the daily volume. 
@@ -22,3 +24,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Step 1: Run Jupyter Notebook and follow the instructions in the notebook.
 
 Please run the <b>DataPrep</b> Jupyter Notebook in the folder <b>1_Data</b> from your Amazon SageMaker Notebook instance.
+
+## Next step:
+
+We're ready to proceed backtesting a few trading strategies. [Build and backtest trading strategies](../2_Strategies).
