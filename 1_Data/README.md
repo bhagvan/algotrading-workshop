@@ -21,7 +21,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ### Step 1: Run Jupyter Notebook and follow the instructions in the notebook.
 
-Please run the <b>DataPrep</b> Jupyter Notebook in the folder <b>1_Data</b>. 
-
-
-
+Please run the <b>DataPrep</b> Jupyter Notebook in the folder <b>1_Data</b> from your Amazon SageMaker Notebook instance.
