@@ -8,11 +8,13 @@ In this module, we prepare the stocket market data and store per ticker a separa
 
 1. You can choose between the following Jupyter Notebooks: <b>Strategy SMA</b> or <b>Strategy Breakout</b> in the folder <b>2_Strategies</b> and run it from your Amazon SageMaker Notebook instance. In the instructions of the notebook, there is guidance on how to optimize the strategies.
 
-### Step 2: Train machine-learning model for a trading strategy
-1. Select the Jupyter Notebook <b>Strategy ML Forecast</b> in the folder <b>2_Strategies</b> and run it from your Amazon SageMaker Notebook instance. In the instructions, there is guidance on how to optimize the strategy
+### Step 2: Train machine-learning model for trading strategy
+
+1. Select the Jupyter Notebook <b>Train_Model_Forecast</b> in the folder <b>3_Models</b> and run it from your Amazon SageMaker Notebook instance. In the instructions, there is guidance on how to optimize the strategy
 
 
 ### Step 3: Backtest machine-learning based strategy
+
 1. Select the Jupyter Notebook <b>Strategy ML Forecast</b> in the folder <b>2_Strategies</b> and run it from your Amazon SageMaker Notebook instance. In the instructions, there is guidance on how to optimize the strategy.
 
 ## Next step:
