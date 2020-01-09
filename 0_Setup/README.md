@@ -1,4 +1,4 @@
-# Set up your development environment
+# Set up the environment
 
 **Time to complete:** 5-10 minutes.
 
@@ -28,9 +28,17 @@ Keep in mind that your bucket’s name must be globally unique across all region
 ### Step 3: Create Notebook Instance
 
 1. Navigate to Amazon SageMaker [in the console](https://console.aws.amazon.com/sagemaker) and Select Notebook / Notebooks and Click **Create notebook instance**.
-1. Set 'Notebook instance name' to 'algotrading'.
-1. Under Permissions and ecryption / IAM Role, select **Create a new role** if don't have an existing AmazonSagerMaker-ExecutionRole-YYYYMMDDhhmmss. This will bring up a new screen that allows you to create a new IAM role. In this screen specify the S3 bucket that you have created in step 2 (e.g. **algoworkshop-firstname-lastname**) and click **Create Role***
+1. Set 'Notebook instance name' to **algotrading**.
+1. Under Permissions and ecryption / IAM Role, select **Create a new role** if you don't have an existing AmazonSagerMaker-ExecutionRole-YYYYMMDDhhmmss. This will bring up a new screen that allows you to create a new IAM role. In this screen specify the S3 bucket that you have created in Step 2 (e.g. **algoworkshop-firstname-lastname**) and click **Create Role**.
 1. Under Git Repositories, select the default repository from the dropdown list: **algotrading-workshop**. 
 1. Click **Create notebook instance**.
 
-### Step 3: Create Notebook Instance
+### Step 4: Grant SageMaker access to ECS
+
+1. Navigate to IAM [in the console](https://console.aws.amazon.com/iam) and Select Access Management / Roles and select the SageMakerExecutionRole-YYYYMMDDhhmmss that you selected in the notebook.
+2. Click **Attach policies** and search for **AmazonEC2ContainerRegistryFullAccess**, select the checkbox next to it, and click **Attach policy**
+
+## Next step:
+
+We're ready to proceed getting the data for our trading strategies. [data](../1_Data).
+
