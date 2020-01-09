@@ -1,0 +1,43 @@
+FROM ubuntu:16.04
+
+RUN apt-get -y update && apt-get install -y --no-install-recommends \
+         software-properties-common \
+    && add-apt-repository ppa:deadsnakes/ppa
+
+RUN apt-get -y update && apt-get install -y --no-install-recommends \
+         wget \
+         python3.6 \
+         python3.6-dev \
+         libopenmpi-dev \
+         openmpi-bin \
+         gcc \
+         git \
+         nginx \
+         libsm6 \
+         libxext6 \
+         libxrender1 \
+         ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN ln -s "/usr/bin/python3.6" /usr/bin/python
+RUN python --version
+
+# Install all of the packages
+RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
+
+RUN python -m pip install git+https://github.com/notadamking/tensortrade.git#egg=tensortrade[tf,tensorforce,baselines,ccxt,ta,fbm] -U
+
+#RUN git clone https://github.com/notadamking/tensortrade.git
+#RUN cd tensortrade && pip install -r requirements.txt
+
+RUN python -m pip install opencv-python
+RUN python -m pip install stochastic
+
+# Env Variables
+ENV PYTHONUNBUFFERED=TRUE
+ENV PYTHONDONTWRITEBYTECODE=TRUE
+ENV PATH="/opt/program:${PATH}"
+
+# Set up the program in the image
+COPY model /opt/program
+WORKDIR /opt/program

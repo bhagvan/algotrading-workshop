@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+import backtrader as bt
+from algo_base import *
+import importlib
+
+algo_name=''
+with open('algo_name', 'r') as file:
+    algo_name = file.read().replace('\n', '')
+algo_package='algo_'+algo_name
+print("import:%s" % algo_package)
+
+cls = getattr(importlib.import_module(algo_package), 'MyStrategy')
+print(cls)
+
+algo=AlgoStrategy(cls)
+algo.run()
