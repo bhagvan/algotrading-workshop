@@ -34,6 +34,6 @@ At minimum, at the end of this workshop, you should have backtested several trad
 ## Modules
 
 1. [Module 0: Set up the environment](0_Setup)
-1. [Module 1: Prepare the stock market data](1_Data)
+1. [Module 1: Prepare stock market data](1_Data)
 1. [Module 2: Build and backtest trading strategies using Amazon SageMaker](2_Strategies)
 1. [Module 3: Cleanup](5_Cleanup)
