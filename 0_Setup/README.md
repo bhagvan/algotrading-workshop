@@ -8,7 +8,7 @@ We are going to use [AWS SageMaker](https://aws.amazon.com/sagemaker/) as our ex
 
 _If you already have a running Jupyter Notebook, feel free to use that. Make sure you clone this git repository in the notebook and you attach **AmazonEC2ContainerRegistryFullAccess** to the SageMakerExecutionRole that is used in your notebook_
 
-### Step 1: Create a S3 Bucket for SageMaker
+### Step 1: Create S3 Bucket for SageMaker
 
 1. Navigate to Amazon S3 [in the console](https://console.aws.amazon.com/s3).
 1. Choose Create Bucket.
@@ -40,5 +40,4 @@ Keep in mind that your bucket’s name must be globally unique across all region
 
 ## Next step:
 
-We're ready to proceed getting the data for our trading strategies. [data](../1_Data).
-
+We're ready to proceed getting the data for our trading strategies. [Prepare the stock market data](../1_Data).
