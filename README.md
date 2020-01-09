@@ -2,6 +2,8 @@
 
 As part of this workshop, participants will learn how to develop and host algorithmic trading strategies and machine learning models for algorithmic trading with Amazon SageMaker.
 
+![chart](assets/chart.png)
+
 _Time Commitment Expectations: This workshop was created to be completed in approximately 1 hours._
 
 ## Considerations for Each Role
@@ -18,7 +20,7 @@ At minimum, at the end of this workshop, you should have backtested several trad
 ## Solution Architecture
 
 
-![chart](assets/chart.png)
+![architecture](assets/arc-backtest.png)
 
 ## Supported regions:
 * us-east-1 (N. Virginia)
@@ -31,9 +33,9 @@ At minimum, at the end of this workshop, you should have backtested several trad
 
 ## Modules
 
-1. [Module 0: Setting up the environment](0_setup)
-1. [Module 1: Prepare the stock market data](1_data)
-1. [Module 2: Build and backtest trading strategies using Amazon SageMaker](2_strategies)
-1. [Module 3: Train models for trading strategies using Amazon SageMaker](3_models)
-1. [Module 4: Run your trading strategies in a simulation environment](4_simulation)
-1. [Module 5: Cleanup](5_cleanup)
+1. [Module 0: Setting up the environment](0_Setup)
+1. [Module 1: Prepare the stock market data](1_Data)
+1. [Module 2: Build and backtest trading strategies using Amazon SageMaker](2_Strategies)
+1. [Module 3: Train models for trading strategies using Amazon SageMaker](3_Models)
+1. [Module 4: Run your trading strategies in a simulation environment](4_Simulation)
+1. [Module 5: Cleanup](5_Cleanup)
