@@ -1,4 +1,4 @@
-# Prepare the stock market data
+# Build and backtest trading strategies using Amazon SageMaker
 
 **Time to complete:** 25 minutes.
 
