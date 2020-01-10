@@ -49,7 +49,7 @@ _If you have a running Jupyter Notebook environment, feel free to use that. Make
 
 1. Navigate to Amazon SageMaker [in the console](https://console.aws.amazon.com/sagemaker) and Select Notebook / Notebooks and Click **Create notebook instance**.
 1. Set 'Notebook instance name' to **algotrading**.
-1. In the “Permissions and Encryption”section  choose “Enter a custom IAM role ARN” and use the TeamRole ARN provisioned in your account (e.g. “arn:aws:iam:{YourAccountID}:role/TeamRole”)
+1. In the “Permissions and Encryption” section, choose “Enter a custom IAM role ARN” and use the TeamRole ARN provisioned in your account (e.g. **arn:aws:iam:{YourAccountID}:role/TeamRole**)
 1. Under Git Repositories, select the default repository from the dropdown list: **algotrading-workshop**.
 1. Click **Create notebook instance**.
 
