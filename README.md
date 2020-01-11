@@ -80,12 +80,15 @@ _If you have a running Jupyter Notebook environment, feel free to use that. Make
 **Time to complete:** 15 minutes.
 
 In this module, we backtest a trend following strategy with Amazon SageMaker.
-
+ 
 You can choose between the following trading strategies:
-1. Simple Moving Average Strategy: **Strategy SMA.ipynb**
-1. Daily Breakout Strategy: **Strategy_Breakout.ipynb**
+1. **Simple Moving Average Strategy**: **2_Strategies/Strategy SMA.ipynb**
+
+1. **Daily Breakout Strategy**: **2_Strategies/Strategy_Breakout.ipynb**
 
 Select the Jupyter Notebook for backtesting the strategy in the folder **2_Strategies** for your selected strategy and run it from your Amazon SageMaker Notebook instance. In the instructions, there is guidance on how to optimize the strategy.
+
+
 
 ## Step 3: Backtest a machine-learning based strategy
 
@@ -93,14 +96,10 @@ Select the Jupyter Notebook for backtesting the strategy in the folder **2_Strat
 
 In this module, we backtest a machine-learning strategy with Amazon SageMaker.
 
-You can choose between the following trading strategies:
+You can choose the following trading strategy:
 1. **ML Long/Short Prediction**
-* Model Training: **Train_Model_Forecast.ipynb**
-* Strategy Backtesting: **Strategy_Forecast.ipynb**
-
-2. **Reinforcement Learning** (available soon)
-* Model Training: **Train_Model_RL.ipynb**
-* Strategy Backtesting: **Strategy_RL.ipynb**
+* Model Training: **3_Models/Train_Model_Forecast.ipynb**
+* Strategy Backtesting: **2_Strategies/Strategy_Forecast.ipynb**
 
 ### Step 3.1 Train machine-learning model
 
