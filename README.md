@@ -80,7 +80,7 @@ _If you have a running Jupyter Notebook environment, feel free to use that. Make
 **Time to complete:** 15 minutes.
 
 In this module, we backtest a trend following strategy with Amazon SageMaker.
- 
+
 You can choose between the following trading strategies:
 1. **Simple Moving Average Strategy**: **2_Strategies/Strategy SMA.ipynb**
 
@@ -118,6 +118,12 @@ Available Soon.
 ### Congratulations! You have completed the workshop. Don't forget to cleanup the resources if you use your own account.
 
 ## Step 5: Cleanup (Optional)
+
+<details>
+<summary>  
+Please expand for detailed instructions.
+</summary>
+
 To avoid charges for resources you no longer need when you’re done with this workshop, you can delete them or, in the case of your notebook instance, stop them. Here are the resources you should consider:
 
 ### Step 5.1: Notebook instances
