@@ -22,6 +22,20 @@ import sys
 
 print("python:%s" % sys.version)
 
+import backtrader as bt
+from algo_base import *
+import importlib
+from algo_live_feed import AlgoLiveData
+
+algo_name=''
+with open('algo_name', 'r') as file:
+    algo_name = file.read().replace('\n', '')
+algo_package='algo_'+algo_name
+print("import:%s" % algo_package)
+
+cls = getattr(importlib.import_module(algo_package), 'MyStrategy')
+print(cls)
+
 cpu_count = multiprocessing.cpu_count()
 
 model_server_timeout = os.environ.get('MODEL_SERVER_TIMEOUT', 60)
@@ -57,32 +71,10 @@ def start_server():
                                  'wsgi:app'])
 
     signal.signal(signal.SIGTERM, lambda a, b: sigterm_handler(nginx.pid, gunicorn.pid))
-    
-    
-    from threading import Timer, Thread, Event
-    from datetime import datetime
 
-    class PT():
-        def __init__(self, t, hFunction):
-            self.t = t
-            self.hFunction = hFunction
-            self.thread = Timer(self.t, self.handle_function)
-
-        def handle_function(self):
-            self.hFunction()
-            self.thread = Timer(self.t, self.handle_function)
-            self.thread.start()
-
-        def start(self):
-            self.thread.start()
-
-    def printer():
-        tempo = datetime.today()
-        h,m,s = tempo.hour, tempo.minute, tempo.second
-        print(f"{h}:{m}:{s}")
-
-    t = PT(5, printer)
-    t.start()    
+    data=AlgoLiveData(endpoint="http://localhost:8080/pull")
+    algo=AlgoStrategy(cls,data)
+    algo.run()
     
     # If either subprocess exits, so do we.
     pids = set([nginx.pid, gunicorn.pid])

@@ -8,15 +8,18 @@ from pytz import timezone
 import requests
 import json
 import time
+from algo_sim_feed import AlgoSimData
 
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 plt.rcParams["figure.figsize"] = [16,9]
 
+# More documentation about backtrader: https://www.backtrader.com/
+
 class AlgoStrategy():
     
-    def __init__(self,strategy):
+    def __init__(self,strategy,data=None):
         self.cerebro = bt.Cerebro()
         
         self.cerebro.broker.setcash(100000.0)
@@ -30,22 +33,32 @@ class AlgoStrategy():
         self.model_path = os.path.join(prefix, 'model')  
         self.hyper_params_path = os.path.join(prefix, 'input/config/hyperparameters.json')
   
+        with open(self.hyper_params_path, 'r') as f:
+            self.hyper_params = json.load(f)
+        print("hyper_params=%s" % (self.hyper_params))
+
         datafile=self.train_data_path
         print("datafile:%s" % (datafile))
         
-        self.data = btfeeds.GenericCSVData(
-            dataname=datafile,
-            dtformat=('%Y-%m-%d'),
-            timeframe=bt.TimeFrame.Minutes,
-            datetime=0,
-            time=-1,
-            high=2,
-            low=3,
-            open=1,
-            close=4,
-            volume=5,
-            openinterest=-1
-        )
+        if data is None:
+            if 'sim_data' in self.hyper_params:
+                self.data = AlgoSimData(datafile)
+            else:
+                self.data = btfeeds.GenericCSVData(
+                    dataname=datafile,
+                    dtformat=('%Y-%m-%d'),
+                    timeframe=bt.TimeFrame.Minutes,
+                    datetime=0,
+                    time=-1,
+                    high=2,
+                    low=3,
+                    open=1,
+                    close=4,
+                    volume=5,
+                    openinterest=-1
+            )
+        else:
+            self.data=data
         self.cerebro.adddata(self.data)
 
         self.cerebro.addstrategy(strategy)
@@ -101,10 +114,6 @@ class AlgoStrategy():
         plt.savefig(os.path.join(self.model_path, 'chart.png'))
     
     def submit(self):
-        with open(self.hyper_params_path, 'r') as f:
-            self.hyper_params = json.load(f)
-        print("hyper_params=%s" % (self.hyper_params))
-
         if 'user_account' in self.hyper_params and 'submitUrl' in self.hyper_params:
             name=self.hyper_params['user_account']
             algo=self.hyper_params['algo_name']
