@@ -72,7 +72,11 @@ def start_server():
 
     signal.signal(signal.SIGTERM, lambda a, b: sigterm_handler(nginx.pid, gunicorn.pid))
 
-    data=AlgoLiveData(endpoint="http://localhost:8080/pull")
+    with open('algo_config', 'r') as f:
+        config = json.load(f)
+    print("config=%s" % (config))
+
+    data=AlgoLiveData(config["region"])
     algo=AlgoStrategy(cls,data)
     algo.run()
     

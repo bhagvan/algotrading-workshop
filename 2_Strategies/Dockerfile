@@ -23,6 +23,7 @@ RUN pip install keras
 RUN pip install backtrader
 RUN pip install matplotlib
 RUN pip install ta-lib
+RUN pip install boto3
 
 # Env Variables
 ENV PYTHONUNBUFFERED=TRUE

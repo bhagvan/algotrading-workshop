@@ -26,26 +26,24 @@ class AlgoStrategy():
         self.cerebro.broker.setcommission(commission=0.0) # zero commission
     
         self.portfolioStartValue=self.cerebro.broker.getvalue()
-
-        prefix = '/opt/ml/'
-        self.train_data_path = os.path.join(prefix,'input/data/training/data.csv')
-        self.output_path = os.path.join(prefix, 'output')
-        self.model_path = os.path.join(prefix, 'model')  
-        self.hyper_params_path = os.path.join(prefix, 'input/config/hyperparameters.json')
-  
-        with open(self.hyper_params_path, 'r') as f:
-            self.hyper_params = json.load(f)
-        print("hyper_params=%s" % (self.hyper_params))
-
-        datafile=self.train_data_path
-        print("datafile:%s" % (datafile))
-        
+                    
         if data is None:
+            prefix = '/opt/ml/'
+            self.train_data_path = os.path.join(prefix,'input/data/training/data.csv')
+            self.output_path = os.path.join(prefix, 'output')
+            self.model_path = os.path.join(prefix, 'model')  
+            self.hyper_params_path = os.path.join(prefix, 'input/config/hyperparameters.json')
+  
+
+            with open(self.hyper_params_path, 'r') as f:
+                self.hyper_params = json.load(f)
+            print("hyper_params=%s" % (self.hyper_params))
+
             if 'sim_data' in self.hyper_params:
-                self.data = AlgoSimData(datafile)
+                self.data = AlgoSimData(self.train_data_path)
             else:
                 self.data = btfeeds.GenericCSVData(
-                    dataname=datafile,
+                    dataname=self.train_data_path,
                     dtformat=('%Y-%m-%d'),
                     timeframe=bt.TimeFrame.Minutes,
                     datetime=0,
@@ -58,7 +56,9 @@ class AlgoStrategy():
                     openinterest=-1
             )
         else:
+            self.hyper_params={}
             self.data=data
+            
         self.cerebro.adddata(self.data)
 
         self.cerebro.addstrategy(strategy)
@@ -150,7 +150,8 @@ class StrategyTemplate(bt.Strategy):
         self.lastMonth=-1
         with open('algo_config', 'r') as f:
             self.config = json.load(f)
-        print("config=%s" % (self.config))
+        print("[INIT]:config=%s" % (self.config))
+        self.dataclose = self.datas[0].close
         
     def notify_order(self, order):
         dt=self.datas[0].datetime.datetime(0)
@@ -166,6 +167,7 @@ class StrategyTemplate(bt.Strategy):
                 
     def next(self):
         dt=self.datas[0].datetime.datetime(0)
+        print("[NEXT]:%s:close=%s" % (dt,self.dataclose[0]))
         
         #SOM
         if self.lastMonth!=dt.month:

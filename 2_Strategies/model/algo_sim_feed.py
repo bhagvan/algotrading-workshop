@@ -87,6 +87,9 @@ class AlgoSimData(DataBase):
         #print("%s:%s:%s" % (self.n,dt,close))
         
         self.lines.datetime[0] = date2num(dt)
+        
+        print(self.num2date(self.lines.datetime[0]))
+        
         self.lines.open[0] = close
         self.lines.high[0] = close
         self.lines.low[0] = close

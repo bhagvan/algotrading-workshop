@@ -2,6 +2,9 @@
 import json
 import sys
 import boto3
+import sagemaker as sage
+
+sess = sage.Session()
 
 with open('model/algo_config', 'r') as f:
     config = json.load(f)
@@ -9,6 +12,7 @@ with open('model/algo_config', 'r') as f:
 account=boto3.client('sts').get_caller_identity().get('Account')
 user_account=config['user']+'@'+account
 config["user_account"] = user_account
+config["region"]=sess.boto_session.region_name
 
 algo_name=sys.argv[1]
 config["algo_name"] = algo_name
